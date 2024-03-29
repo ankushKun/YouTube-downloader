@@ -66,14 +66,15 @@ def playlist(link,res):
 		print("Failed, try diffrent resolution.")
 
 def menu():
-	if len(sys.argv) > 4 or len(sys.argv) < 4:
+	try:
+		if sys.argv[1] == 'video':
+			video_download(f"{sys.argv[2]}",sys.argv[3])
+		elif sys.argv[1] == 'audio':
+			audio_download(f"{sys.argv[2]}",sys.argv[3])
+		elif sys.argv[1] == "playlist":
+			playlist(f"{sys.argv[2]}",sys.argv[3])
+	except IndexError:
 		help()
-	if sys.argv[1] == 'video':
-		video_download(sys.argv[2],sys.argv[3])
-	elif sys.argv[1] == 'audio':
-		audio_download(sys.argv[2],sys.argv[3])
-	elif sys.argv[1] == "playlist":
-		playlist(sys.argv[2],sys.argv[3])
 
 welcome()
 menu()
