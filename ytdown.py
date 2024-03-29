@@ -66,8 +66,6 @@ def playlist(link,res):
 		print("Failed, try diffrent resolution.")
 
 def menu():
-	if len(sys.argv) > 4 or len(sys.argv) < 4:
-		help()
 	try:
 		if sys.argv[1] == 'video':
 			video_download(f"{sys.argv[2]}",sys.argv[3])
